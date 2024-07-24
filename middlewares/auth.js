@@ -6,7 +6,6 @@ const verifyAuthenticated = (req, res, next) => {
 
   cognito.getUser({ AccessToken: token }, (err, data) => {
     if (err) {
-      console.log({ err, token });
       return res.status(401).json({ error: "Unauthorized" });
     }
     next();
